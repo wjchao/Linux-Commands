@@ -1,6 +1,6 @@
-openssh-client
+openssh-client:
 ubuntu有默认安装，如果没有则sudo apt-get install openssh-client
-openssh-server
+openssh-server:
 检查：ps -e|grep ssh 
 检查结果：若出现sshd表示已openssh-server已经运行
 安装：sudo apt-get install openssh-server

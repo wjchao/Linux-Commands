@@ -1,0 +1,22 @@
+Mac terminal can run ssh client
+The format of the ssh command is ssh -p port_number username@servername
+You can omit -p 22 if the port is assumed 22
+The username only needs to be specified if it is different on the serverthan it is on your Mac workstation
+For example, 
+    ssh linuxsvr
+    ssh bob@linuxsvr
+    ssh -p 2222 bob@linuxsvr
+
+Problem:
+    terminal came back "ssh: connect to host 192.168.1.11 port 22: Connection refused"
+solute:
+    1.ping 192.168.1.11 see can connect the linuxsvr
+    2.check openssh-server installed in that system.
+    3.check the status of ssh service, make ssh service start.
+        sudo service ssh status    
+        sudo service ssh start
+    4.Check iptables in that system that port 22 is blocked. Just allow port in iptables and then check.
+        sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+    5.Else change port number of ssh from 22 to 2222 by editing
+        vi etc/ssh/sshd_config    
+        /etc/init.d/ssh restart.
