@@ -14,5 +14,3 @@ ssh-client无法连接到Linux时，问题排查：
 未理解问题：
 1.username@servername servername通常使用ip代替，那怎么设置servername呢
 2.现解决了内网的访问，如何在外网的环境下建立ssh连接
-
-test
